@@ -1,3 +1,5 @@
+# 🚀 Virtual Event Management API
+
 A production-ready backend system for managing virtual events with secure authentication, event creation, and participant registration.
 
 Live Demo: https://event-virtual-management-prod3.onrender.com
