@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-const { JWT_SECRET } = require("../config/config");
+const { JWT_SECRET_KEY } = require("../config/config");
 
 module.exports = (req, res, next) => {
   const header = req.headers.authorization;
@@ -8,10 +8,10 @@ module.exports = (req, res, next) => {
   const token = header.split(" ")[1];
 
   try {
-    const decoded = jwt.verify(token, JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET_KEY);
     req.user = decoded;
     next();
-  } catch {
+  } catch (err) {
     res.status(401).json({ message: "Invalid token" });
   }
 };
